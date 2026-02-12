@@ -1,6 +1,6 @@
-package com.seuprojeto.demo.repository;
+package com.example.repository;
 
-import com.seuprojeto.demo.model.Usuario;
+import com.example.demo.model.Usuario;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
