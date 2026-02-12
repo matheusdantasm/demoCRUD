@@ -1,4 +1,4 @@
-package com.example.repository;
+package com.example.demo.repository;
 
 import com.example.demo.model.Usuario;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -68,8 +68,8 @@ public class UsuarioRepository {
     private Usuario mapRowToUsuario(ResultSet rs, int rowNum) throws SQLException {
         Usuario usuario = new Usuario();
         usuario.setId(rs.getLong("id"));
-        usuario.setNome(rs.getString("nome"));
-        usuario.setEmail(rs.getString("email"));
+        usuario.atualizarNome(rs.getString("nome"));
+        usuario.atualizarEmail(rs.getString("email"));
         return usuario;
     }
 }

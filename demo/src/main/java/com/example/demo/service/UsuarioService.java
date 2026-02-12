@@ -1,4 +1,4 @@
-package com.example.service;
+package com.example.demo.service;
 
 import com.example.demo.model.Usuario;
 import com.example.demo.repository.UsuarioRepository;
