@@ -1,6 +1,7 @@
 package com.example.demo.repository;
 
 import com.example.demo.model.Usuario;
+import com.example.demo.model.Email;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -34,7 +35,11 @@ public class UsuarioRepository {
     // Salvar
     public int salvar(Usuario usuario) {
         String sql = "INSERT INTO usuarios (nome, email) VALUES (?, ?)";
-        return jdbcTemplate.update(sql, usuario.getNome(), usuario.getEmail());
+        return jdbcTemplate.update(
+                sql,
+                usuario.getNome(),
+                usuario.getEmail().getValor()   // 🔥 CORREÇÃO AQUI
+        );
     }
 
     // Listar todos
@@ -52,10 +57,12 @@ public class UsuarioRepository {
     // Atualizar
     public int atualizar(Usuario usuario) {
         String sql = "UPDATE usuarios SET nome = ?, email = ? WHERE id = ?";
-        return jdbcTemplate.update(sql,
+        return jdbcTemplate.update(
+                sql,
                 usuario.getNome(),
-                usuario.getEmail(),
-                usuario.getId());
+                usuario.getEmail().getValor(),   // 🔥 CORREÇÃO AQUI
+                usuario.getId()
+        );
     }
 
     // Remover
@@ -69,7 +76,7 @@ public class UsuarioRepository {
         Usuario usuario = new Usuario();
         usuario.setId(rs.getLong("id"));
         usuario.atualizarNome(rs.getString("nome"));
-        usuario.atualizarEmail(rs.getString("email"));
+        usuario.atualizarEmail(rs.getString("email")); // cria novo Email internamente
         return usuario;
     }
 }
