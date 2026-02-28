@@ -13,44 +13,45 @@
 		<relativePath/>
 	</parent>
 
-	<groupId>br.com.nogueiranogueira</groupId>
-	<artifactId>solidproject</artifactId>
+	<groupId>com.example.demo</groupId>
+	<artifactId>projetoCRUD</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>solidproject</name>
-	<description>Projeto SOLID Refatorado</description>
+	<name>projetoCRUD</name>
+	<description>Projeto CRUD Spring Boot para Azure</description>
 
 	<properties>
-		<java.version>21</java.version>
+		<java.version>17</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
 	<dependencies>
 
-		<!-- WEB -->
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
-		<!-- JPA + HIBERNATE -->
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
 
-		<!-- THYMELEAF (para Bootstrap e páginas HTML) -->
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 
-		<!-- BANCO H2 -->
+
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
 		</dependency>
 
-		<!-- DEVTOOLS (reload automático) -->
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -58,7 +59,7 @@
 			<optional>true</optional>
 		</dependency>
 
-		<!-- TESTES -->
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -68,11 +69,35 @@
 	</dependencies>
 
 	<build>
+		<finalName>app</finalName>
+
 		<plugins>
+
+
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>17</source>
+					<target>17</target>
+				</configuration>
+			</plugin>
+
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<skipTests>true</skipTests>
+				</configuration>
+			</plugin>
+
 		</plugins>
 	</build>
 
