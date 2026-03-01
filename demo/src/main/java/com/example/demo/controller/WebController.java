@@ -12,11 +12,10 @@ public class WebController {
         return "redirect:/cadastro";
     }
 
-    // Mapeia a página de cadastro
+    // Página de cadastro
     @GetMapping("/cadastro")
     public String cadastro() {
         return "cadastro"; // busca cadastro.html no templates
     }
 
-    // Você pode manter outros métodos que já tinha aqui
 }
